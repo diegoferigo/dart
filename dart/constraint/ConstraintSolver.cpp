@@ -31,6 +31,7 @@
  */
 
 #include "dart/constraint/ConstraintSolver.hpp"
+
 #include <algorithm>
 
 #include "dart/collision/CollisionFilter.hpp"
@@ -544,6 +545,7 @@ void ConstraintSolver::updateConstraints()
 
       mContactConstraints.push_back(
           std::make_shared<ContactConstraint>(contact, mTimeStep));
+      mContactConstraints.back()->setConstraintForceMixing(0.01);
     }
   }
 
